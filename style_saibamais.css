@@ -1,0 +1,80 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  line-height: 1.8;
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20201023/pngtree-aesthetic-vintage-leaves-background-image_431879.jpg");
+  background-size: cover;
+  color: #2b2b2b;
+}
+
+/* Container principal */
+header, main, footer {
+  background-color: rgba(255, 255, 240, 0.92);
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 800px;
+  box-shadow: 0px 3px 7px rgba(0,0,0,0.25);
+}
+
+/* Cabeçalho */
+header {
+  text-align: center;
+}
+header h1 {
+  font-size: 2.2rem;
+  color: #4d392d;
+  margin-bottom: 10px;
+}
+header p {
+  font-style: italic;
+  color: #666;
+}
+
+/* Títulos */
+h2 {
+  margin-top: 20px;
+  color: #5a3d2b;
+  border-bottom: 2px solid #c4a484;
+  padding-bottom: 5px;
+}
+
+/* Texto */
+p {
+  margin-top: 10px;
+  font-size: 1.05rem;
+  color: #2e2e2e;
+}
+
+/* Navegação */
+.navegacao, .voltar {
+  text-align: center;
+  margin-top: 20px;
+}
+.navegacao a, .voltar a {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 15px;
+  background: #4d392d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.navegacao a:hover, .voltar a:hover {
+  background: #7a5b45;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  color: #444;
+}

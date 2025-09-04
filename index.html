@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Estoque Supermercado</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Controle de Estoque - Supermercado</h1>
+
+  <h2>📦 Lista de Produtos</h2>
+  <button onclick="listarProdutos()">Atualizar Lista</button>
+  <ul id="lista-produtos"></ul>
+
+  <h2>➕ Adicionar Produto</h2>
+  <input id="nome" placeholder="Nome">
+  <input id="preco" placeholder="Preço">
+  <input id="quantidade" placeholder="Quantidade">
+  <button onclick="adicionarProduto()">Adicionar</button>
+
+  <h2>✏️ Atualizar Produto</h2>
+  <input id="id-update" placeholder="ID">
+  <input id="nome-update" placeholder="Novo nome">
+  <input id="preco-update" placeholder="Novo preço">
+  <input id="quantidade-update" placeholder="Nova quantidade">
+  <button onclick="atualizarProduto()">Atualizar</button>
+
+  <h2>🗑 Remover Produto</h2>
+  <input id="id-delete" placeholder="ID">
+  <button onclick="deletarProduto()">Remover</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

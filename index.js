@@ -6,11 +6,11 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "src")));
 
 let produtos = [
-  { id: 1, nome: "Arroz", preco: 15, quantidade: 50 },
-  { id: 2, nome: "Feijão", preco: 10, quantidade: 30 }
+  { id: 1, nome: "Arroz", preco: 15, quantidade: 50, categoria: "Alimentos" },
+  { id: 2, nome: "Feijão", preco: 10, quantidade: 30, categoria: "Alimentos" }
 ];
 
-// Rota principal -> abre o index.html
+// Rota principal
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "src", "index.html"));
 });
@@ -22,17 +22,23 @@ app.get("/produtos", (req, res) => {
 
 // POST -> adicionar produto
 app.post("/produtos", (req, res) => {
-  const { nome, preco, quantidade } = req.body;
+  const { nome, preco, quantidade, categoria } = req.body;
 
-  if (!nome || isNaN(preco) || isNaN(quantidade)) {
+  if (!nome || isNaN(preco) || isNaN(quantidade) || !categoria) {
     return res.status(400).json({ erro: "Dados inválidos" });
+  }
+
+  // Não permitir nomes duplicados
+  if (produtos.some(p => p.nome.toLowerCase() === nome.toLowerCase())) {
+    return res.status(400).json({ erro: "Produto já existe!" });
   }
 
   const novo = {
     id: produtos.length > 0 ? produtos[produtos.length - 1].id + 1 : 1,
     nome,
     preco: parseFloat(preco),
-    quantidade: parseInt(quantidade)
+    quantidade: parseInt(quantidade),
+    categoria
   };
 
   produtos.push(novo);
@@ -46,10 +52,11 @@ app.put("/produtos/:id", (req, res) => {
 
   if (!produto) return res.status(404).json({ erro: "Produto não encontrado" });
 
-  const { nome, preco, quantidade } = req.body;
+  const { nome, preco, quantidade, categoria } = req.body;
   if (nome) produto.nome = nome;
   if (!isNaN(preco)) produto.preco = parseFloat(preco);
   if (!isNaN(quantidade)) produto.quantidade = parseInt(quantidade);
+  if (categoria) produto.categoria = categoria;
 
   res.json(produto);
 });

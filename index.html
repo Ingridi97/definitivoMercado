@@ -12,18 +12,28 @@
 
   <main>
     <h2>📦 Lista de Produtos</h2>
-    <button onclick="toggleLista()">Mostrar/Esconder Lista</button>
-    <ul id="lista-produtos" style="display:none;"></ul>
+    <button onclick="toggleLista()">Mostrar / Esconder Lista</button>
+    <select id="filtro-categoria" onchange="filtrarPorCategoria()">
+      <option value="todas">Todas as categorias</option>
+      <option value="Alimentos">Alimentos</option>
+      <option value="Bebidas">Bebidas</option>
+      <option value="Limpeza">Limpeza</option>
+    </select>
+    <ul id="lista-produtos"></ul>
+
+    <!-- 🔍 Barra de busca movida para cima -->
+    <h2>🔍 Buscar Produto</h2>
+    <input id="nome-busca" placeholder="Nome do produto">
+    <button onclick="buscarProduto()">Buscar</button>
+    <ul id="resultado-busca"></ul>
 
     <h2>➕ Adicionar Produto</h2>
     <input id="nome" placeholder="Nome">
     <input id="preco" placeholder="Preço">
     <input id="quantidade" placeholder="Quantidade">
     <select id="categoria">
-      <option value="">Selecione a categoria</option>
       <option value="Alimentos">Alimentos</option>
       <option value="Bebidas">Bebidas</option>
-      <option value="Higiene">Higiene</option>
       <option value="Limpeza">Limpeza</option>
     </select>
     <button onclick="adicionarProduto()">Adicionar</button>
@@ -34,10 +44,9 @@
     <input id="preco-update" placeholder="Novo preço">
     <input id="quantidade-update" placeholder="Nova quantidade">
     <select id="categoria-update">
-      <option value="">Selecione a categoria</option>
+      <option value="">(não alterar)</option>
       <option value="Alimentos">Alimentos</option>
       <option value="Bebidas">Bebidas</option>
-      <option value="Higiene">Higiene</option>
       <option value="Limpeza">Limpeza</option>
     </select>
     <button onclick="atualizarProduto()">Atualizar</button>
@@ -46,6 +55,10 @@
     <input id="id-delete" placeholder="ID">
     <button onclick="deletarProduto()">Remover</button>
   </main>
+
+  <footer>
+    <p>© 2025 - Sistema de Controle de Estoque</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>

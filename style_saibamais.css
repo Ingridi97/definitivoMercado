@@ -38,7 +38,7 @@ h1, h2 {
   margin-bottom: 15px;
 }
 
-/* Botões e Select */
+/* Botões */
 button, select {
   padding: 10px 18px;
   margin: 8px 0;
@@ -70,21 +70,35 @@ input:focus {
 }
 
 /* Lista de produtos */
-#lista-produtos {
-  list-style: none;   /* sem bolinhas */
+#lista-produtos, #resultado-busca {
+  list-style: none;
   padding: 0;
   margin-top: 15px;
 }
 
-#lista-produtos li {
-  display: block;  /* garante que fiquem empilhados */
+#lista-produtos li, #resultado-busca li {
+  display: block;
   margin: 8px 0;
   padding: 12px;
-  background: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   font-size: 1rem;
   font-weight: 500;
+  color: #fff;
+}
+
+/* Cores por categoria */
+#lista-produtos li.alimentos, #resultado-busca li.alimentos {
+  background: #0077b6;
+}
+#lista-produtos li.bebidas, #resultado-busca li.bebidas {
+  background: #0096c7;
+}
+#lista-produtos li.higiene, #resultado-busca li.higiene {
+  background: #90be6d;
+}
+#lista-produtos li.limpeza, #resultado-busca li.limpeza {
+  background: #f9844a;
 }
 
 /* Rodapé */

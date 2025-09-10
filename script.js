@@ -39,6 +39,11 @@ async function adicionarProduto() {
     })
   });
 
+  document.getElementById("nome").value = "";
+  document.getElementById("preco").value = "";
+  document.getElementById("quantidade").value = "";
+  document.getElementById("categoria").value = "";
+
   listarProdutos();
 }
 
@@ -55,6 +60,12 @@ async function atualizarProduto() {
     body: JSON.stringify({ nome, preco, quantidade, categoria })
   });
 
+  document.getElementById("id-update").value = "";
+  document.getElementById("nome-update").value = "";
+  document.getElementById("preco-update").value = "";
+  document.getElementById("quantidade-update").value = "";
+  document.getElementById("categoria-update").value = "";
+
   listarProdutos();
 }
 
@@ -66,6 +77,8 @@ async function deletarProduto() {
   await fetch(`/produtos/${id}`, {
     method: "DELETE"
   });
+
+  document.getElementById("id-delete").value = "";
 
   listarProdutos();
 }
@@ -95,6 +108,12 @@ async function buscarProduto() {
     li.textContent = `${p.id} - ${p.nome} - R$ ${p.preco} - Estoque: ${p.quantidade} - Categoria: ${p.categoria}`;
     resultado.appendChild(li);
   });
+
+  document.getElementById("nome-busca").value = "";
+   document.getElementById("resultado-busca-busca").value = "resultado-busca";
+
+
+  buscarProduto();
 }
 
 async function filtrarPorCategoria() {
